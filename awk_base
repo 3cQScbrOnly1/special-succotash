@@ -1,0 +1,16 @@
+awk '{if($1=="特定字段") print;}' file_name 
+//取第一列某个特定字段到文件
+
+awk '{if($1=="特定字段") a++}END{print a}' file_name
+//统计第一列某个特定字段出现次数
+
+awk '{a[$1]++}END{for(j in a) print (a[j],j)}' file_name
+//统计第一列所有字段重复的次数
+
+cat file_name | awk '{if($1=="特定字段") print;}'| sort -k 1
+//按第一列某个特定字段进行排序
+
+//以上命令均可后接 ">指定文件" 输出结果到指定文件
+
+//总结
+// awk 统计功能很好用，配合其他工具可以达到很好的效果，比如可以配合sort进行排序。
